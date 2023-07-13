@@ -60,8 +60,7 @@ class GCodeSystemCommands(octoprint.plugin.StartupPlugin,
         self._logger.debug("Command ID=%s, Line=%s, Args=%s" % (cmd_id, cmd_line, cmd_args))
 
         self._logger.info("Executing command ID: %s" % cmd_id)
-        comm_instance._log("Exec(GCodeSystemCommands): OCTO%s" % cmd_id)
-
+        comm_instance._log("Exec(GCodeSystemCommands): OCTO%s %s" % (cmd_id, "" if cmd_args is None else cmd_args))
         cmd_env = {}
         cmd_env['OCTOPRINT_GCODESYSTEMCOMMAND_ID'] = str(cmd_id)
         cmd_env['OCTOPRINT_GCODESYSTEMCOMMAND_ARGS'] = str(cmd_args) if cmd_args else ''
